@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Names</title>
+    <style>
+        body {
+            background-color: #5c5c5c;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .container {
+            background-color: #5c5c5c;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+        h1 {
+            font-family: 'Impact', sans-serif;
+            color: white;
+        }
+        #image {
+            max-width: 300px;
+            max-height: 300px;
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #333;
+        }
+        button:hover {
+            background-color: #ffd900;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 id="characterName"></h1>
+    <img id="image" src="" alt="">
+    <br>
+    <button onclick="generateCharacter()">Generate</button>
+</div>
+
+<script>
+    // List of characters and corresponding image paths
+    const characters = ['Bob the Minion','Osamu Dazai', 'Nikolai Gogal', 'Gwen Stacy', 'Miles Morales', 'Q', 'Ranpo Edogawa', 'Karl', 'Denki Kaminari', 'Toph', 'Hawks'];
+    const images = ['images/bob_the_minion.png','images/dazai.png', 'images/gogal.png', 'images/gwen.png', 'images/miles.png', 'images/q.png', 'images/ranpo.png', 'images/karl.png', 'images/denki.png', 'images/toph.png', 'images/hawks.png'];  // Ensure these image paths are correct
+
+    // Function to generate a random character and display the name and image
+    function generateCharacter() {
+        // Select a random character index
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        const selectedCharacter = characters[randomIndex];
+        const selectedImagePath = images[randomIndex];
+
+        // Update the character name
+        document.getElementById('characterName').textContent = selectedCharacter;
+
+        // Update the image
+        const imgElement = document.getElementById('image');
+        imgElement.src = selectedImagePath;
+    }
+</script>
+
+</body>
+</html>
